@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARRITO DE COMPRAS </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+	
+	<nav class="navbar navbar-dark bg-dark">
+ 		 <div class="container-fluid">
+  			  <a class="navbar-brand" href="#">Inicio</a>
+  			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Carrito</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+	<div class="container mt-2">
+		<div class="row">
+			<div th:each="reg:${producto}" class="col-sm-4">
+				<div class="card">
+					<div class="card-header">
+						<label th:text="${reg.NombreProduc}" ></label>
+					</div>
+					<div class="card-body">
+						<i th:text="${reg.Precio}" ></i>
+						<img src="https://www.sony.com.pe/image/1e8656674d614b5ecfd32b3ede07387a?fmt=pjpeg&wid=1200&hei=470&bgcolor=F1F5F9&bgc=F1F5F9 " width="200" height="180">
+					</div>
+					<div class="card-footer text-center">
+						<label th:text="${reg.Descripcion}" ></label>
+						<div>
+							<a href="" class="btn btn-outline-info" >Agregar al carrito</a>
+							<a th:href="@{/ver/}+${reg.Id}" class="btn btn-danger" >Comprar</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
